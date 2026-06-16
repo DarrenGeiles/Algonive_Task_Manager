@@ -1,49 +1,29 @@
+# Algonive Internship: Advanced Task Manager
 
-# Quantum Task Dashboard
-
-A robust, enterprise-grade project management and productivity tracking platform built entirely on client-side architecture. Designed for the Algonive Web Development Internship, this application utilizes a modern "Bento Box" UI grid, advanced data portability, and real-time visualization without the overhead of a backend server.
+A robust, client-side web application designed to help users manage daily tasks, track productivity, and visualize workloads. Built for the Algonive Web Development Internship.
 
 ## 🚀 Key Features
 
-* **Modern Bento Box UI & Theme Engine:** Engineered with a sleek, responsive CSS Grid architecture. Features a seamless Light/Dark mode toggle that instantly overrides CSS custom properties and updates chart rendering contexts.
-* **Interactive Kanban Board:** Full Drag-and-Drop (DnD) API implementation allowing users to seamlessly transition tasks across 'To Do', 'In Progress', and 'Completed' lifecycle columns.
-* **Advanced Task Architecture:** * **Rich Text Support:** Integrates `marked.js` to parse Markdown (`**bold**`, `*italic*`, lists) directly inside task descriptions.
-  * **Subtask Engine:** Dynamic subtask checklists featuring inline progress bars that calculate and animate completion percentages in real-time.
-  * **Base64 File Attachments:** Utilizes asynchronous `FileReader` APIs to convert image uploads into Base64 strings, saving visual attachments directly to local storage.
-* **Built-in Pomodoro Focus Timer:** A dedicated productivity module featuring 25-minute focus blocks and 5-minute break intervals to optimize workflow pacing.
-* **Data Portability (Export/Import):** Complete data sovereignty. Users can instantly serialize their entire workspace state into a `.json` backup file and download it to their local machine, or upload a backup to seamlessly restore their dashboard.
-* **Live Analytics Engine:** Leverages `Chart.js` to render interactive Doughnut and Bar charts that dynamically track completion rates and workload distribution by priority levels.
-* **System Activity Ledger:** A dedicated historical timeline panel that automatically logs chronological system activities (task creation, status shifts, deletions) with timestamped accuracy.
+* **Core Task Management:** A complete web-based task management system built using JavaScript. It allows users to smoothly add, edit, and delete tasks with specific deadlines.
+* **Detailed Task Creation:** Users can seamlessly add new tasks complete with a designated title, detailed description, and an exact due date.
+* **Interactive Filtering & Status:** Users can dynamically mark tasks as complete or incomplete and filter their dashboard view accordingly.
+* **Persistent Data Tracking:** The system utilizes the browser's local storage to save all tasks and activity persistently without requiring a backend database.
+* **Smart Notifications:** Integrates a proactive reminder feature that alerts users of any approaching task deadlines.
+* **Modern Presentation Layer:** Designed with a highly clean, glassmorphic, and responsive UI utilizing modern HTML & CSS.
+* **Advanced Productivity Tools:** Includes a built-in Pomodoro focus timer, drag-and-drop Kanban categorization, and interactive `Chart.js` visual analytics.
 
 ## 💻 Tech Stack
 
-* **Frontend Structure:** HTML5, Vanilla JavaScript (ES6+), DOM Manipulation API
-* **Styling Engine:** CSS3 (CSS Grid, Flexbox, Custom Variables, Fluid Animations)
-* **Persistent Storage:** Browser `localStorage` API
-* **External Libraries:** * `Chart.js` (Data Visualization)
-  * `marked.js` (Markdown Parsing)
-  * `FontAwesome` (Vector Iconography)
+* **Frontend:** HTML5, CSS3, Vanilla JavaScript
+* **Storage:** Browser `localStorage` API
+* **Libraries:** Chart.js, marked.js, FontAwesome
 
-## 🛠️ Infrastructure Setup & Installation (Local Deployment)
+## 🛠️ How to Run Locally
 
-Because the Quantum Task Dashboard utilizes an advanced client-side persistent storage model, there are no databases to configure or backend servers to spin up. 
-
-1. **Clone the repository** to your local machine:
-```bash
-   git clone [https://github.com/your-username/quantum-task-dashboard.git](https://github.com/your-username/quantum-task-dashboard.git)
-```
-
-2. **Navigate into the project directory:**
-```bash
-cd quantum-task-dashboard
-
-```
-
-
-3. **Launch the Application:**
-* **Option A (Standard):** Simply double-click the `index.html` file to open it in your default web browser.
-* **Option B (Recommended for Devs):** Open the project in VS Code and use the **Live Server** extension to host it on a local development port (e.g., `http://127.0.0.1:5500/`).
-
+1. Clone this repository to your local machine.
+2. Navigate into the project directory on your computer.
+3. Simply double-click the `index.html` file to launch the application directly in your default web browser (no server required).
+4. **Alternative:** Open the project directory in your IDE (like VS Code) and run it via a Live Server extension for hot-reloading.
 
 ---
 *Developed by Darren Wilfred Geiles for Algonive*
