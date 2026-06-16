@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Task Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-grid">
+        
+        <aside class="sidebar bento-card">
+            <div class="brand"><i class="fa-solid fa-layer-group"></i> QUANTUM</div>
+            <nav>
+                <a href="#" class="active"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+                <a href="#" id="btn-activity"><i class="fa-solid fa-bolt"></i> Activity Log</a>
+            </nav>
+            
+            <div class="settings-panel">
+                <h4 class="section-title">Preferences</h4>
+                <button id="theme-toggle" class="btn-secondary w-100"><i class="fa-solid fa-moon"></i> Toggle Theme</button>
+                
+                <h4 class="section-title" style="margin-top: 15px;">Data Control</h4>
+                <button id="btn-export" class="btn-secondary w-100"><i class="fa-solid fa-download"></i> Backup Data</button>
+                <button id="btn-import-trigger" class="btn-secondary w-100" style="margin-top: 8px;"><i class="fa-solid fa-upload"></i> Restore Data</button>
+                <input type="file" id="file-import" accept=".json" style="display: none;">
+            </div>
+
+            <div class="quick-actions">
+                <button id="btn-new-task" class="btn-primary w-100"><i class="fa-solid fa-plus"></i> New Task</button>
+            </div>
+        </aside>
+
+        <section class="top-stats">
+            <div class="bento-card stat-box">
+                <div class="stat-icon"><i class="fa-solid fa-list-check"></i></div>
+                <div>
+                    <h3 id="stat-total">0</h3>
+                    <p>Total Tasks</p>
+                </div>
+            </div>
+            <div class="bento-card stat-box">
+                <div class="stat-icon warning"><i class="fa-solid fa-clock"></i></div>
+                <div>
+                    <h3 id="stat-pending">0</h3>
+                    <p>Pending</p>
+                </div>
+            </div>
+            
+            <div class="bento-card pomodoro-box">
+                <div class="pomo-header">
+                    <h4><i class="fa-solid fa-stopwatch"></i> Focus Mode</h4>
+                    <span id="pomo-status">Ready</span>
+                </div>
+                <div class="pomo-display" id="pomo-time">25:00</div>
+                <div class="pomo-controls">
+                    <button id="btn-pomo-start"><i class="fa-solid fa-play"></i></button>
+                    <button id="btn-pomo-reset"><i class="fa-solid fa-rotate-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="charts-section">
+            <div class="bento-card chart-container">
+                <h4>Completion Status</h4>
+                <canvas id="donutChart"></canvas>
+            </div>
+            <div class="bento-card chart-container">
+                <h4>Workload by Priority</h4>
+                <canvas id="barChart"></canvas>
+            </div>
+        </section>
+
+        <section class="kanban-section bento-card">
+            <header class="kanban-header">
+                <h2>Project Board</h2>
+                <select id="filter-select" class="modern-select">
+                    <option value="All">All Priorities</option>
+                    <option value="High">High Only</option>
+                    <option value="Medium">Medium Only</option>
+                    <option value="Low">Low Only</option>
+                </select>
+            </header>
+            
+            <div class="kanban-board">
+                <div class="kanban-column" id="col-todo" data-status="todo">
+                    <div class="col-title">To Do <span class="badge" id="count-todo">0</span></div>
+                </div>
+                <div class="kanban-column" id="col-progress" data-status="progress">
+                    <div class="col-title">In Progress <span class="badge" id="count-progress">0</span></div>
+                </div>
+                <div class="kanban-column" id="col-done" data-status="done">
+                    <div class="col-title">Completed <span class="badge" id="count-done">0</span></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="activity-modal" class="modal hidden">
+        <div class="modal-content bento-card">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-clock-rotate-left"></i> System Activity Log</h2>
+                <button class="btn-close-activity" onclick="document.getElementById('activity-modal').classList.add('hidden')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="activity-timeline" id="activity-list"></div>
+        </div>
+    </div>
+
+    <div id="modal-container"></div>
+    <div id="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
